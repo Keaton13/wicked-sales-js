@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductListItem from './product-list-ltem';
 
 class ProductList extends React.Component {
   constructor() {
@@ -16,13 +17,19 @@ class ProductList extends React.Component {
   async getProducts() {
     const response = await fetch('http://localhost:3000/api/products');
     const json = await response.json();
-    this.setState({ data: json });
-
+    this.setState({ products: json });
   }
 
-  render() {
+  render(props) {
+    const cards = this.state.products;
     return (
-      <div className="card-deck">
+      <div className="container">
+        <div className="card-deck">
+          {cards.map(product =>
+            <ProductListItem key={product.productId}
+              value={product} />
+          )}
+        </div>
       </div>
     );
   }
