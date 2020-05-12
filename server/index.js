@@ -19,6 +19,18 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/products/:id', (req, res, next) => {
+  const id = req.params.id;
+  db.query(`SELECT * FROM "products" WHERE "productId" = ${id} `)
+    .then(result => {
+      if (result.rows[0] === undefined) {
+        next(new ClientError(`cannot find product with id ${id}`, 404));
+      }
+      res.json(result.rows[0]);
+    })
+    .catch(err => next(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
