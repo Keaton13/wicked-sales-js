@@ -1,0 +1,12 @@
+.cardWidth {
+    /* width: 18rem; */
+    /* margin: auto; */
+    min-width: 25% !important;
+    margin-bottom: 2% !important;
+    margin-top: 2% !important;
+}
+.cardImg {
+    width: 55%;
+    margin: auto;
+    object-fit: contain;
+}

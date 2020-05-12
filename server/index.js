@@ -19,7 +19,7 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 app.get('/api/products', (req, res, next) => {
-  db.query('SELECT "prductId", "name", "price", "image", "shortDescription" FROM "products"')
+  db.query('SELECT "productId", "name", "price", "image", "shortDescription" FROM "products"')
     .then(result => res.json(result.rows))
     .catch(err => next(err));
 });

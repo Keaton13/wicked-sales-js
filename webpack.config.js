@@ -19,9 +19,16 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: [
-              '@babel/plugin-transform-react-jsx'
-            ]
+            plugins: ['@babel/plugin-transform-react-jsx']
+          }
+        }
+      },
+      {
+        test: /\.(png|svg|jpe?g|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
           }
         }
       }
