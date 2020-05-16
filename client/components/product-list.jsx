@@ -2,8 +2,8 @@ import React from 'react';
 import ProductListItem from './product-list-ltem';
 
 class ProductList extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       products: [],
       data: []
@@ -20,14 +20,14 @@ class ProductList extends React.Component {
     this.setState({ products: json });
   }
 
-  render(props) {
+  render() {
     const cards = this.state.products;
     return (
       <div className="container">
         <div className="card-deck">
           {cards.map(product =>
             <ProductListItem key={product.productId}
-              value={product} />
+              value={product} setView={this.props.setView}/>
           )}
         </div>
       </div>
