@@ -31,28 +31,42 @@ class ProductDetails extends React.Component {
     this.props.setview('catalog');
   }
 
+  handlePriceLogic() {
+    let price = this.state.product.price / 100;
+    price = price.toFixed(2);
+    return price;
+  }
+
   render() {
     if (this.state.isLoading) {
       return <h1>Loading...</h1>;
     } else {
+      let price = this.state.product.price / 100;
+      price = price.toFixed(2);
       return (
         <div className='container'>
           <div className='card mt-4'>
             <div className='card-body'>
               <div className='row'>
                 <div className="col">
-                  <button className='btn btn-outline-primary btn-sm align-top' onClick={this.handleBackButton}>
-                  Back
+                  <button className='btn btn-outline-primary btn-sm align-top mr-5' onClick={this.handleBackButton}>
+                    Back
                   </button>
                   <img src={this.state.product.image} className='cardImg' alt='Image' />
                 </div>
                 <div className="col">
-                  <h5 className='card-title'>{this.state.product.name}</h5>
-                  <h6>{this.state.product.price / 100}</h6>
-                  <p className='card-text'>{this.state.product.shortDescription}</p>
+                  <div className="row">
+                    <h5 className='card-title'>{this.state.product.name}</h5>
+                    <h5 className="ml-3">{price}</h5>
+                    <p className='card-text'>{this.state.product.shortDescription}</p>
+                  </div>
+                  <div className="row mt-4">
+                    <button className="btn btn-outline-primary m-auto">Add To Cart</button>
+                  </div>
+
                 </div>
               </div>
-              <div className="row">
+              <div className="row mt-4">
                 <div className="col">
                   {this.state.product.longDescription}
                 </div>
