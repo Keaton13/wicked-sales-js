@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import CartSummaryItem from './cartSummaryItem';
 
 class CartSummary extends React.Component {
