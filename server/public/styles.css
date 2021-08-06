@@ -11,7 +11,7 @@
     object-fit: contain;
 }
 .headerImageHeight {
-    height: 85% !important;
+    height: 70% !important;
     transform: scaleX(-1);
 }
 
