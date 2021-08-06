@@ -8,6 +8,7 @@ class ProductDetails extends React.Component {
       isLoading: true
     };
     this.handleBackButton = this.handleBackButton.bind(this);
+    this.handleAddToCart = this.handleAddToCart.bind(this);
   }
 
   async componentDidMount() {
@@ -37,6 +38,11 @@ class ProductDetails extends React.Component {
     return price;
   }
 
+  handleAddToCart() {
+    const product = this.state.product;
+    this.props.addItemToCart(product);
+  }
+
   render() {
     if (this.state.isLoading) {
       return <h1>Loading...</h1>;
@@ -61,7 +67,7 @@ class ProductDetails extends React.Component {
                     <p className='card-text'>{this.state.product.shortDescription}</p>
                   </div>
                   <div className="row mt-4">
-                    <button className="btn btn-outline-primary m-auto">Add To Cart</button>
+                    <button className="btn btn-outline-primary m-auto" onClick={this.handleAddToCart}>Add To Cart</button>
                   </div>
 
                 </div>
