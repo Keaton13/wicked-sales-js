@@ -13,7 +13,7 @@ class ProductDetails extends React.Component {
 
   async componentDidMount() {
     const productId = this.props.params.productId;
-    fetch(`http://wickedsales.keatonkrieger.com/api/products/${productId}`)
+    fetch(`https://wickedsales.keatonkrieger.com/api/products/${productId}`)
       .then(res => {
         return res.json();
       })
