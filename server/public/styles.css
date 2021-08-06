@@ -10,3 +10,11 @@
     margin: auto;
     object-fit: contain;
 }
+.headerImageHeight {
+    height: 85% !important;
+    transform: scaleX(-1);
+}
+
+.maxHeightHeader {
+    height: 3rem !important;
+}
