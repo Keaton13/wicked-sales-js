@@ -15,7 +15,7 @@ class ProductList extends React.Component {
   }
 
   async getProducts() {
-    const response = await fetch('http://localhost:3000/api/products');
+    const response = await fetch('http://wickedsales.keatonkrieger.com/api/products');
     const json = await response.json();
     this.setState({ products: json });
   }
